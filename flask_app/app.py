@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, Response, send_from_directory
 import subprocess
 import os
 from multiprocessing import Process,Queue,Pipe
-from server_pipe_test import f
+from update_files_pipe import f
 
 subprocess.call(['sudo', 'ufw', 'allow', os.environ['PORT_START']])
 
