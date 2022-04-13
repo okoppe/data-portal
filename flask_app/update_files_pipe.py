@@ -162,8 +162,8 @@ class jupterNoteBookList:
         return self.BokehLinkDict
 
 
-#j1 = jupterNoteBookList(os.environ['GIT_REPO_LINK'], os.environ['REPO_LOCAL_DIR'], int(os.environ['PORT_START']))
-j1 = jupterNoteBookList("https://github.com/okoppe/Juypter-Notebook-Repo.git", "/home/owenkoppe/Juypter-Notebook-Repo", 5000)
+j1 = jupterNoteBookList(os.environ['GIT_REPO_LINK'], os.environ['REPO_LOCAL_DIR'], int(os.environ['PORT_START']))
+
 j1.loopUpdate()
 
 def f(child_conn):
