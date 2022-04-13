@@ -4,8 +4,7 @@ import os
 from multiprocessing import Process,Queue,Pipe
 from server_pipe_test import f
 
-#subprocess.call(['sudo', 'ufw', 'allow', os.environ['PORT_START']])
-subprocess.call(['sudo', 'ufw', 'allow', '5000'])
+subprocess.call(['sudo', 'ufw', 'allow', os.environ['PORT_START']])
 
 selectedValue2 = " "
 
@@ -21,8 +20,7 @@ def index():
     BokehLinkDictFlaskCopy = parent_conn.recv()
     p.join()
     return render_template("index.html", noteBookNames=list(BokehLinkDictFlaskCopy.keys()), BokehLinkDictFlaskCopy = BokehLinkDictFlaskCopy,
-        bool_files = len(BokehLinkDictFlaskCopy.keys()), selectedValue = "select a notebook") #len(BokehLinkDictFlaskCopy), selectedValue = list(BokehLinkDictFlaskCopy.keys())[0],
-        #linkToBokeh = BokehLinkDictFlask[selectedValue])
+        bool_files = len(BokehLinkDictFlaskCopy.keys()), selectedValue = "select a notebook")
 
 #path for veiwing data set inline
 @app.route('/chooseDataSet/<noteBookName>', methods = ['POST', 'GET'])
@@ -49,5 +47,4 @@ def download():
     #return send_from_directory(directory="/home/owenkoppe/Juypter-Notebook-Repo", path=selectedValue2, as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
-    #app.run(host="0.0.0.0", port=int(os.environ['PORT_START']), debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ['PORT_START']), debug=True)
